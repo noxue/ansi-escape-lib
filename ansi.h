@@ -79,183 +79,192 @@ typedef struct
 
 extern const _ansi Ansi;
 
-// 工具函数，方便组装 ANSI 字符串，并输出到标准输出
-void ansi(const char *fmt, ...);
+#ifdef __cplusplus
+// C++
+extern "C"
+{
+#endif
 
-// 重置所有设置
-void ansi_reset();
+    // 工具函数，方便组装 ANSI 字符串，并输出到标准输出
+    void ansi(const char *fmt, ...);
 
-//=======操作光标=====================
+    // 重置所有设置
+    void ansi_reset();
 
-// 光标上移一行
-void ansi_cursor_up();
+    //=======操作光标=====================
 
-// 光标下一一行
-void ansi_cursor_down();
+    // 光标上移一行
+    void ansi_cursor_up();
 
-// 光标向右一列
-void ansi_cursor_forward();
+    // 光标下一一行
+    void ansi_cursor_down();
 
-// 光标向左一列
-void ansi_cursor_backward();
+    // 光标向右一列
+    void ansi_cursor_forward();
 
-// 光标向前移动n列
-void ansi_cursor_forward_n(int n);
+    // 光标向左一列
+    void ansi_cursor_backward();
 
-// 光标向后移动n列
-void ansi_cursor_backward_n(int n);
+    // 光标向前移动n列
+    void ansi_cursor_forward_n(int n);
 
-// 光标向下移动n行
-void ansi_cursor_down_n(int n);
+    // 光标向后移动n列
+    void ansi_cursor_backward_n(int n);
 
-// 光标向上移动n行
-void ansi_cursor_up_n(int n);
+    // 光标向下移动n行
+    void ansi_cursor_down_n(int n);
 
-// 光标移动到指定行列
-void ansi_cursor_position(int row, int col);
+    // 光标向上移动n行
+    void ansi_cursor_up_n(int n);
 
-// 保存光标位置
-void ansi_cursor_save();
+    // 光标移动到指定行列
+    void ansi_cursor_position(int row, int col);
 
-// 恢复光标位置
-void ansi_cursor_restore();
+    // 保存光标位置
+    void ansi_cursor_save();
 
-// 隐藏光标
-void ansi_cursor_hide();
+    // 恢复光标位置
+    void ansi_cursor_restore();
 
-// 显示光标
-void ansi_cursor_show();
+    // 隐藏光标
+    void ansi_cursor_hide();
 
-//==========设置前景色==========
+    // 显示光标
+    void ansi_cursor_show();
 
-// 设置前景色为红色
-void ansi_fg_red();
+    //==========设置前景色==========
 
-// 设置前景色为绿色
-void ansi_fg_green();
+    // 设置前景色为红色
+    void ansi_fg_red();
 
-// 设置前景色为黄色
-void ansi_fg_yellow();
+    // 设置前景色为绿色
+    void ansi_fg_green();
 
-// 设置前景色为蓝色
-void ansi_fg_blue();
+    // 设置前景色为黄色
+    void ansi_fg_yellow();
 
-// 设置前景色为品红色
-void ansi_fg_magenta();
+    // 设置前景色为蓝色
+    void ansi_fg_blue();
 
-// 设置前景色为青色
-void ansi_fg_cyan();
+    // 设置前景色为品红色
+    void ansi_fg_magenta();
 
-// 设置前景色为白色
-void ansi_fg_white();
+    // 设置前景色为青色
+    void ansi_fg_cyan();
 
-// 恢复默认颜色
-void ansi_fg_default();
+    // 设置前景色为白色
+    void ansi_fg_white();
 
-// 设置背景色为指定rgb颜色
-void ansi_fg_rgb(int r, int g, int b);
+    // 恢复默认颜色
+    void ansi_fg_default();
 
-//=======设置背景色=====
+    // 设置背景色为指定rgb颜色
+    void ansi_fg_rgb(int r, int g, int b);
 
-// 设置背景色为红色
-void ansi_bg_red();
+    //=======设置背景色=====
 
-// 设置背景色为绿色
-void ansi_bg_green();
+    // 设置背景色为红色
+    void ansi_bg_red();
 
-// 设置背景色为黄色
-void ansi_bg_yellow();
+    // 设置背景色为绿色
+    void ansi_bg_green();
 
-// 设置背景色为蓝色
-void ansi_bg_blue();
+    // 设置背景色为黄色
+    void ansi_bg_yellow();
 
-// 设置背景色为品红色
-void ansi_bg_magenta();
+    // 设置背景色为蓝色
+    void ansi_bg_blue();
 
-// 设置背景色为青色
-void ansi_bg_cyan();
+    // 设置背景色为品红色
+    void ansi_bg_magenta();
 
-// 设置背景色为白色
-void ansi_bg_white();
+    // 设置背景色为青色
+    void ansi_bg_cyan();
 
-//  恢复默认颜色
-void ansi_bg_default();
+    // 设置背景色为白色
+    void ansi_bg_white();
 
-// 设置背景色为指定rgb颜色
-void ansi_bg_rgb(int r, int g, int b);
+    //  恢复默认颜色
+    void ansi_bg_default();
 
-//=====字体======
+    // 设置背景色为指定rgb颜色
+    void ansi_bg_rgb(int r, int g, int b);
 
-// 字体加粗
-void ansi_font_bold();
+    //=====字体======
 
-// 字体倾斜
-void ansi_font_italic();
+    // 字体加粗
+    void ansi_font_bold();
 
-// 字体下划线
-void ansi_font_underline();
+    // 字体倾斜
+    void ansi_font_italic();
 
-// 字体闪烁
-void ansi_font_flash();
+    // 字体下划线
+    void ansi_font_underline();
 
-// 字体快速闪烁,不全不支持，大多数时候和ansi_font_flash效果一样
-void ansi_font_flash_fast();
+    // 字体闪烁
+    void ansi_font_flash();
 
-// 字体颜色和背景颜色反转
-void ansi_font_reverse();
+    // 字体快速闪烁,不全不支持，大多数时候和ansi_font_flash效果一样
+    void ansi_font_flash_fast();
 
-// 隐藏内容
-void ansi_font_invisible();
+    // 字体颜色和背景颜色反转
+    void ansi_font_reverse();
 
-// 删除线
-void ansi_font_strikethrough();
+    // 隐藏内容
+    void ansi_font_invisible();
 
-// 恢复默认字体
-void ansi_font_normal();
+    // 删除线
+    void ansi_font_strikethrough();
 
-// 可选字体,没啥效果
-void ansi_font_alt_1();
+    // 恢复默认字体
+    void ansi_font_normal();
 
-void ansi_font_alt_2();
+    // 可选字体,没啥效果
+    void ansi_font_alt_1();
 
-void ansi_font_alt_3();
+    void ansi_font_alt_2();
 
-void ansi_font_alt_4();
+    void ansi_font_alt_3();
 
-void ansi_font_alt_5();
+    void ansi_font_alt_4();
 
-void ansi_font_alt_6();
+    void ansi_font_alt_5();
 
-void ansi_font_alt_7();
+    void ansi_font_alt_6();
 
-void ansi_font_alt_8();
+    void ansi_font_alt_7();
 
-void ansi_font_alt_9();
+    void ansi_font_alt_8();
 
-void ansi_font_alt_10();
+    void ansi_font_alt_9();
 
-// 双下划线
-void ansi_font_underline_double();
+    void ansi_font_alt_10();
 
-// 取消加粗
-void ansi_font_bold_off();
+    // 双下划线
+    void ansi_font_underline_double();
 
-// 取消斜体
-void ansi_font_italic_off();
+    // 取消加粗
+    void ansi_font_bold_off();
 
-// 取消下划线
-void ansi_font_underline_off();
+    // 取消斜体
+    void ansi_font_italic_off();
 
-// 取消闪烁
-void ansi_font_no_flash();
+    // 取消下划线
+    void ansi_font_underline_off();
 
-// 取消颜色和背景颜色反转
-void ansi_font_no_reverse();
+    // 取消闪烁
+    void ansi_font_no_flash();
 
-// 显示内容
-void ansi_font_visible();
+    // 取消颜色和背景颜色反转
+    void ansi_font_no_reverse();
 
-// 取消删除线
-void ansi_font_no_strikethrough();
+    // 显示内容
+    void ansi_font_visible();
 
+    // 取消删除线
+    void ansi_font_no_strikethrough();
+
+#ifdef __cplusplus
+}
+#endif
 #endif
