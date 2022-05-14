@@ -1,4 +1,4 @@
-#include "ansi.h"
+#include "../ansi.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "imgs.h"

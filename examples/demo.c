@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "ansi.h"
+#include "../ansi.h"
 
 int main(int argc, char const *argv[])
 {
