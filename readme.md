@@ -61,3 +61,8 @@ imgs.h 是使用这个项目 <https://github.com/noxue/img2rgb> 来生成的 c �
 ![](imgs/9.png)
 
 ![](imgs/10.png)
+
+
+## 2048游戏效果
+
+![](imgs/2048.png)
