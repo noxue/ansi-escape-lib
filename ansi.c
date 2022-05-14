@@ -3,6 +3,8 @@
 
 const _ansi Ansi = {
     "\x1b[0m",
+    "\x1b[%dJ", // 清除屏幕的部分区域。如果 n 是 0（或缺失），则清除从光标位置到屏幕末尾的部分。如果 n 是 1，则清除从光标位置到屏幕开头的部分。如果 n 是 2，则清除整个屏幕（在 DOS ANSI.SYS 中，光标还会向左上方移动）。如果 n 是 3，则清除整个屏幕，并删除回滚缓存区中的所有行（这个特性是 [[xterm]] 添加的，其他终端应用程序也支持）。
+    "\x1b[%dK", // 清除行内的部分区域。如果 n 是 0（或缺失），清除从光标位置到该行末尾的部分。如果 n 是 1，清除从光标位置到该行开头的部分。如果 n 是 2，清除整行。光标位置不变。
     {
         "\x1b[30m",
         "\x1b[31m",
@@ -89,6 +91,41 @@ void ansi_reset()
     ansi(Ansi.reset);
 }
 
+// 清屏，光标位置不变
+void ansi_clear()
+{
+    ansi(Ansi.clear, 2);
+}
+
+// 清除光标到屏幕开头
+void ansi_clear_to_start()
+{
+    ansi(Ansi.clear, 1);
+}
+
+// 清除光标到屏幕末尾
+void ansi_clear_to_end()
+{
+    ansi(Ansi.clear, 0);
+}
+
+// 清除整行
+void ansi_clear_line()
+{
+    ansi(Ansi.clear_line, 2);
+}
+
+// 清除光标到行首
+void ansi_clear_to_line_start()
+{
+    ansi(Ansi.clear, 1);
+}
+// 清除光标到行尾
+void ansi_clear_to_line_end()
+{
+    ansi(Ansi.clear, 0);
+}
+
 //=======操作光标=====================
 
 // 光标上移一行
@@ -97,7 +134,7 @@ void ansi_cursor_up()
     ansi(Ansi.cursor.up, 1);
 }
 
-// 光标下一一行
+// 光标下移一行
 void ansi_cursor_down()
 {
     ansi(Ansi.cursor.down, 1);
@@ -138,7 +175,6 @@ void ansi_cursor_up_n(int n)
 {
     ansi(Ansi.cursor.up, n);
 }
-
 
 void ansi_cursor_position(int row, int col)
 {

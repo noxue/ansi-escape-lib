@@ -14,7 +14,7 @@ typedef struct
     const char *magenta; // 用法：ansi(Ansi.fg.magenta);
     const char *cyan;    // 用法: ansi(Ansi.fg.cyan);
     const char *white;   // 用法: ansi(Ansi.fg.white);
-    const char *rgb;     // 用法： ansi(Ansi.bg.rgb, 255, 0, 0);
+    const char *rgb;     // 用法： ansi(Ansi.fg.rgb, 255, 0, 0);
     const char *default_color;
 } _color_t;
 
@@ -71,6 +71,8 @@ typedef struct
 typedef struct
 {
     const char *reset;
+    const char *clear;      // 用法: ansi(Ansi.clear,2) ;
+    const char *clear_line; // 用法: ansi(Ansi.hide);
     _color_t fg;
     _color_t bg;
     _font_t font;
@@ -90,6 +92,24 @@ extern "C"
 
     // 重置所有设置
     void ansi_reset();
+
+    // 清屏，光标位置不变
+    void ansi_clear();
+
+    // 清除光标到屏幕开头
+    void ansi_clear_to_start();
+
+    // 清除光标到屏幕末尾
+    void ansi_clear_to_end();
+
+    // 清除整行
+    void ansi_clear_line();
+
+    // 清除光标到行首
+    void ansi_clear_to_line_start();
+
+    // 清除光标到行尾
+    void ansi_clear_to_line_end();
 
     //=======操作光标=====================
 

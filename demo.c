@@ -30,6 +30,11 @@ int main(int argc, char const *argv[])
     printf("Hello World!\n");
     ansi_font_flash_fast();
     printf("Hello World!\n");
+    ansi(Ansi.clear);
+    printf("cccc");
+    ansi_cursor_backward_n(3);
+    ansi_clear_to_line_end();
+    printf("d");
     ansi_reset();
     return 0;
 }
