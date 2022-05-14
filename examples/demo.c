@@ -4,7 +4,12 @@
 
 int main(int argc, char const *argv[])
 {
+
+#ifdef _WIN32 // windows平台下
     system("cls");
+#else
+    system("clear");
+#endif
 
     ansi_cursor_position(1, 1);
     ansi_bg_blue();
