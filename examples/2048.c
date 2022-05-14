@@ -234,6 +234,7 @@ int main(void)
         case 'q': /*退出*/
         case 'Q':
             ansi_cursor_position(20, 0);
+            ansi_cursor_show();
             printf("Are you sure to exit?(y/n)");
             input = getchar();
             if (input == 'y' || input == 'Y')
