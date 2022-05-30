@@ -14,6 +14,8 @@ ansi escape 封装，方便控制命令行颜色和光标
 
 兼容 gcc 和 vs
 
+视频教程：<https://space.bilibili.com/56801074/channel/collectiondetail?sid=420573>
+
 # 例子
 
 ### 基本用法
