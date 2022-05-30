@@ -3,6 +3,7 @@
 ansi-escape-lib 是一个简单的 ansi escape 库，它可以用于在终端上打印 ansi escape 码，
 
 参考：<https://en.wikipedia.org/wiki/ANSI_escape_code>
+中文版：https://zh.wikipedia.org/wiki/ANSI%E8%BD%AC%E4%B9%89%E5%BA%8F%E5%88%97
 
 ansi escape 封装，方便控制命令行颜色和光标
 
