@@ -90,6 +90,9 @@ extern "C"
     // 工具函数，方便组装 ANSI 字符串，并输出到标准输出
     void ansi(const char *fmt, ...);
 
+    // 初始化,执行清屏
+    void ansi_init();
+
     // 重置所有设置
     void ansi_reset();
 

@@ -86,8 +86,8 @@ void ansi(const char *fmt, ...)
     va_end(args);
 }
 
-// 重置所有设置
-void ansi_reset()
+// 初始化
+void ansi_init()
 {
     // 如果是windows系统
     #ifdef _WIN32
@@ -95,7 +95,11 @@ void ansi_reset()
     #else
         system("clear");
     #endif
-    
+}
+
+// 重置所有设置
+void ansi_reset()
+{
     ansi(Ansi.reset);
 }
 
