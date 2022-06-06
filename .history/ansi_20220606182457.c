@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "ansi.h"
 
 const _ansi Ansi = {
@@ -90,12 +89,11 @@ void ansi(const char *fmt, ...)
 void ansi_reset()
 {
     // 如果是windows系统
-    #ifdef _WIN32
+    #if def _WIN32
         system("cls");
     #else
         system("clear");
-    #endif
-    
+
     ansi(Ansi.reset);
 }
 

@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "ansi.h"
 
 const _ansi Ansi = {
@@ -94,8 +93,7 @@ void ansi_reset()
         system("cls");
     #else
         system("clear");
-    #endif
-    
+
     ansi(Ansi.reset);
 }
 

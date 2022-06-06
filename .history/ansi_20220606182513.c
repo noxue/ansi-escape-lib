@@ -94,8 +94,7 @@ void ansi_reset()
         system("cls");
     #else
         system("clear");
-    #endif
-    
+
     ansi(Ansi.reset);
 }
 
