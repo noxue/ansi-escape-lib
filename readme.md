@@ -11,10 +11,11 @@ ansi escape 封装，方便控制命令行颜色和光标
 
 **极其简单，一步到位**
 
-【把 ansi.h 和 ansi.c 复制到自己项目，并引入 ansi.h】
+【把 ansi.h 复制到自己项目，并引入 ansi.h】
 
 兼容 gcc 和 vs
 
+**全部合并到头文件中了，视频中需要2个文件，现在只要1个头文件即可**
 视频教程：<https://space.bilibili.com/56801074/channel/collectiondetail?sid=420573>
 
 # 例子
@@ -22,7 +23,7 @@ ansi escape 封装，方便控制命令行颜色和光标
 ### 基本用法
 
 ```
-gcc -o demo.exe examples/demo.c ansi.c
+gcc -o demo.exe examples/demo.c
 ```
 
 ### 图片转字符画
@@ -36,7 +37,7 @@ imgs.h 是使用这个项目 <https://github.com/noxue/img2rgb> 来生成的 c �
 - 编译命令
 
   ```
-  gcc -o imgs.exe examples/imgs.c ansi.c
+  gcc -o imgs.exe examples/imgs.c
   ```
 
 - 运行命令
@@ -80,7 +81,7 @@ imgs.h 是使用这个项目 <https://github.com/noxue/img2rgb> 来生成的 c �
 ### 编译命令
 
 ```
-gcc -o 2048.exe examples/2048.c ansi.c
+gcc -o 2048.exe examples/2048.c
 ```
 
 ![](imgs/2048.png)
